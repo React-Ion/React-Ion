@@ -34,7 +34,6 @@ export function mapComponents(components, selected) {
   const mapped = [];
 
   _.each(components, (c) => {
-    console.log('FROM HELPERS', c)
     switch (c.componentType) {
       case BLOCK_COMPONENT:
         mapped.push(

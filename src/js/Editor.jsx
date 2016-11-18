@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Draggable from 'react-draggable';
 import { mapComponents, getValue } from '../lib/helpers';
-import { setSelected, setPageSelected } from '../actions/selected';
+import { setSelected, setPageSelected, setSelector } from '../actions/selected';
 import { updateProps, updateInfos, addChild, removeChild, onRedo, onUndo, addPage } from '../actions/routes';
 import { setZoom } from '../actions/setZoom';
 import { toggleControls } from '../actions/toggleControls';
@@ -77,6 +77,7 @@ function mapDispatchToProps(dispatch) {
     addPage,
     setPageSelected,
     setSelected,
+    setSelector,
   }, dispatch);
 }
 

@@ -1,15 +1,10 @@
 import React from 'react';
-import store from '../store/store';
 
 export default class AddPage extends React.Component {
 
   setPage(e, index) {
-    this.props.setSelected(e, this.props.store.pages[this.props.pageSelected]);
+    this.props.setSelected(e, this.props.routes[index].id);
     this.props.setPageSelected(index);
-    console.log(this.props.store.pages[this.props.pageSelected]);
-    // setTimeout(() => {
-    //   this.props.setSelected(e, this.props.store.pages[this.props.pageSelected]);
-    // }, 10);
   }
 
   callback(context) {
@@ -20,8 +15,8 @@ export default class AddPage extends React.Component {
 
     setTimeout(() => {
       this.props.setPageSelected(this.props.store.pages.length - 1);
+      this.props.setSelector(this.props.routes[this.props.routes.length - 1].id);
     }, 100);
-
   }
 
   render() {
@@ -57,3 +52,4 @@ export default class AddPage extends React.Component {
     );
   }
 }
+

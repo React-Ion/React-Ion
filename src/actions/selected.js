@@ -10,9 +10,15 @@ export function setSelected(e, id) {
   };
 }
 
+export function setSelector(id) {
+  return {
+    type: SET_SELECTED,
+    id,
+  };
+}
+
 
 export function setPageSelected(id) {
-  console.log("Test");
   return {
     type: SET_PAGE_SELECTED,
     id,
