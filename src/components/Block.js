@@ -1,7 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { setSelected } from '../actions/selected';
 
 const Block = ({
   backgroundColor,
@@ -49,9 +46,4 @@ const Block = ({
   );
 };
 
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ setSelected }, dispatch);
-}
-
-export default connect(null, mapDispatchToProps)(Block);
+export default Block;

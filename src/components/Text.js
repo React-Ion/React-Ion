@@ -1,7 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { setSelected } from '../actions/selected';
 
 const Text = ({
   content,
@@ -35,8 +32,4 @@ const Text = ({
   );
 };
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ setSelected }, dispatch);
-}
-
-export default connect(null, mapDispatchToProps)(Text);
+export default Text;

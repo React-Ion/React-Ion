@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, browserHistory } from 'react-router';
+// import { Router, Route, browserHistory } from 'react-router';
 import { Provider } from 'react-redux';
 import store from '../store/store';
 import Editor from '../containers/Editor';
-import NotFound from './NotFound';
-
+// import NotFound from './NotFound';
+require('../scss/index.scss');
 // const App = () => (
 //   <Provider store={store}>
 //     <Router history={browserHistory}>

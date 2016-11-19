@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { setSelected } from '../actions/selected';
 
 class Menu extends Component {
   constructor(props) {
@@ -107,15 +104,26 @@ class Menu extends Component {
     };
 
     const childNode = this.state.links.map((child, index) => {
-
       return (
-        <li key={child.name + 'list'} style={{display: 'inline-block', backgroundColor: child.backgroundColor, width: '100px', height: '50px'}} onMouseEnter={context.showList.bind(context, index)} onMouseLeave={context.hideList.bind(context, index)}>
-          <div style={{height: '50px', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>{child.name}</div>
-          <ul key={child.name} style={{padding: '0', width: '100px', backgroundColor: child.backgroundColor, listStyle: 'none', display:child.display, position:'absolute'}}>
+        <li
+          key={child.name + 'list'}
+          style={{ display: 'inline-block', backgroundColor: child.backgroundColor, width: '100px', height: '50px' }}
+          onMouseEnter={context.showList.bind(context, index)}
+          onMouseLeave={context.hideList.bind(context, index)}
+        >
+          <div style={{ height: '50px', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>{child.name}</div>
+          <ul
+            key={child.name}
+            style={{ padding: '0', width: '100px', backgroundColor: child.backgroundColor, listStyle: 'none', display:child.display, position: 'absolute' }}
+          >
             {
               child.children.map((c, i) => {
                 return (
-                  <li key={c.name} style={{backgroundColor: c.backgroundColor, padding: '10px 0 10px 0'}} onMouseEnter={context.highlight.bind(context, i, index)} onMouseLeave={context.unhighlight.bind(context, i, index)}>{c.name}</li>
+                  <li
+                    key={c.name}
+                    style={{backgroundColor: c.backgroundColor, padding: '10px 0 10px 0'}}
+                    onMouseEnter={context.highlight.bind(context, i, index)}
+                    onMouseLeave={context.unhighlight.bind(context, i, index)}>{c.name}</li>
                 );
               })
             }
@@ -124,21 +132,16 @@ class Menu extends Component {
       );
     });
     return (
-      <div 
+      <div
         style={boxStyle}
         onClick={e => this.props.setSelected(e, this.props.id)}
       >
-        <ul style={{textAlign: 'center', padding: '0', margin: '0'}}>
+        <ul style={{ textAlign: 'center', padding: '0', margin: '0' }}>
           {childNode}
         </ul>
       </div>
-    )
+    );
   }
 }
 
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ setSelected }, dispatch);
-}
-
-export default connect(null, mapDispatchToProps)(Menu);
+export default Menu;

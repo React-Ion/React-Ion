@@ -1,9 +1,10 @@
 import React from 'react';
 import _ from 'lodash';
 import { setSelected } from '../actions/selected';
-import Block from '../components/Block';
-import Text from '../components/Text';
-import Menu from '../components/Menu';
+import Block from '../containers/Block';
+import Text from '../containers/Text';
+import Menu from '../containers/Menu';
+import { download } from './api-methods';
 
 const BLOCK_COMPONENT = 'Block';
 const TEXT_COMPONENT = 'Text';
@@ -78,4 +79,24 @@ export function mapComponents(components, selected) {
   });
 
   return mapped;
+}
+
+export function formTreeData(routes) {
+  const newRoutes = _.cloneDeep(routes);
+  let totalComponents = 0;
+  const countComponents = (route) => {
+    route.parent = null;
+    if (route.componentType !== 'Text') { totalComponents += 1; }
+    route.children.forEach(child => countComponents(child));
+  };
+
+  newRoutes.forEach(route => countComponents(route));
+
+  const treeData = {
+    total: totalComponents,
+    router: 1,
+    routes: newRoutes,
+  };
+
+  download(treeData);
 }
