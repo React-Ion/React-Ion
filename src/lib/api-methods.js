@@ -1,7 +1,3 @@
-const port = process.env.PORT || 8080;
-const host = `http://localhost:${port}`;
-// require('whatwg-fetch');
-
 module.exports.download = (projectTree) => {
   window.location.href = `/api/project/generate?tree=${encodeURIComponent(JSON.stringify(projectTree))}`;
 };
@@ -13,31 +9,21 @@ module.exports.getUserProjects = () => {
 module.exports.login = (username, password) => {
   const options = {
     method: 'POST',
-    // headers: {
-    //   'Content-Type': 'application/json',
-    // },
-    body: {
-      username,
-      password,
-    },
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ username, password }),
+    credentials: 'include',
   };
 
-  fetch(host, options)
-    .then(() => {
-      console.log('Successfully logged in');
-    });
+  return fetch('/login', options)
+    .then(userInfo => userInfo)
+    .catch(err => err);
 };
 
 module.exports.signup = (username, password) => {
   const options = {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      username,
-      password,
-    }),
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ username, password }),
   };
 
   return fetch('/signup', options)
@@ -46,7 +32,11 @@ module.exports.signup = (username, password) => {
 };
 
 module.exports.logout = () => {
+  const options = { method: 'GET' };
 
+  return fetch('/logout', options)
+    .then(userInfo => userInfo)
+    .catch(err => err);
 };
 
 module.exports.getProject = () => {
@@ -62,22 +52,16 @@ module.exports.removeProject = () => {
 
 };
 
-module.exports.saveProject = (userId, name, projectTree, projectId) => {
+module.exports.createProject = (projectData) => {
   const options = {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    data: {
-      name,
-      project_tree: projectTree,
-    },
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(projectData),
+    credentials: 'include',
   };
 
-  fetch(`/api/project/${projectId}`, options)
-    .then(() => {
-      console.log('Update Successful');
-    });
+  return fetch('/api/project/', options)
+    .then(projectInfo => projectInfo);
 };
 
 module.exports.updateProject = () => {
