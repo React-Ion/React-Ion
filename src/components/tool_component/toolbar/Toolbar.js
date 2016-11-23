@@ -6,6 +6,8 @@ import {
   login,
   logout,
   createProject,
+  getProject,
+  getAllProjects,
 } from '../../../lib/api-methods';
 import '../../../scss/toolbar.scss';
 
@@ -37,23 +39,13 @@ const Toolbar = ({
     <ToolbarButton click={() => { formTreeData(routes); }}>
       <i className="fa fa-download" aria-hidden="true" />
     </ToolbarButton>
-    <ToolbarButton click={() => { signup('Cheney123', '123'); }}>
-      <i className="fa fa-download" aria-hidden="true" />
-    </ToolbarButton>
     <ToolbarButton click={() => { login('Cheney123', '123'); }}>
       <i className="fa fa-download" aria-hidden="true" />
     </ToolbarButton>
-    <ToolbarButton click={() => { logout(); }}>
+    <ToolbarButton click={() => { getProject(1333); }}>
       <i className="fa fa-download" aria-hidden="true" />
     </ToolbarButton>
-    <ToolbarButton
-      click={() => {
-        createProject({
-          projectProps: { name: 'random', project_tree: '12312415' },
-          permissionId: 1,
-        });
-      }}
-    >
+    <ToolbarButton click={() => { getAllProjects(); }}>
       <i className="fa fa-download" aria-hidden="true" />
     </ToolbarButton>
   </div>
@@ -61,3 +53,19 @@ const Toolbar = ({
 };
 
 export default Toolbar;
+// <ToolbarButton click={() => { signup('Cheney123', '123'); }}>
+//   <i className="fa fa-download" aria-hidden="true" />
+// </ToolbarButton>
+// <ToolbarButton click={() => { logout(); }}>
+//   <i className="fa fa-download" aria-hidden="true" />
+// </ToolbarButton>
+    // <ToolbarButton
+    //   click={() => {
+    //     createProject({
+    //       projectProps: { name: 'random', project_tree: '12312415' },
+    //       permissionId: 1,
+    //     });
+    //   }}
+    // >
+    //   <i className="fa fa-download" aria-hidden="true" />
+    // </ToolbarButton>

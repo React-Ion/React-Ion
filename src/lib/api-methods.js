@@ -39,12 +39,26 @@ module.exports.logout = () => {
     .catch(err => err);
 };
 
-module.exports.getProject = () => {
+module.exports.getProject = (projectId) => {
+  const options = {
+    method: 'GET',
+    credentials: 'include',
+  };
 
+  return fetch(`/api/project/${projectId}`, options)
+    .then(project => console.log(project.text()))
+    .catch(err => err);
 };
 
 module.exports.getAllProjects = () => {
+  const options = {
+    method: 'GET',
+    credentials: 'include',
+  };
 
+  return fetch('/api/project/', options)
+    .then(projects => console.log(projects.text()))
+    .catch(err => err);
 };
 
 
