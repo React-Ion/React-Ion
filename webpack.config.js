@@ -1,14 +1,15 @@
 // This file configures webpack to run on the production files
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const page = require('./page.json');
 
 module.exports = {
   cache: true,
-  entry: './src/app/App.jsx',
+  entry: page,
   output: {
     path: path.join(__dirname, 'dist'),
     publicPath: '',
-    filename: 'js/bundle.js',
+    filename: 'js/[name].js',
   },
   module: {
     loaders: [
@@ -27,7 +28,7 @@ module.exports = {
     ],
   },
   plugins: [
-    new ExtractTextPlugin('css/style.css', {
+    new ExtractTextPlugin('css/[name].css', {
       allChunks: true,
     }),
   ],

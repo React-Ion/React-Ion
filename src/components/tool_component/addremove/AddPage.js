@@ -27,12 +27,10 @@ class AddPage extends React.Component {
 
   render() {
     const context = this;
-    console.log('ADDPAGE', this.props.store.appPages)
     const pages = this.props.store.appPages.map((page, index) => (
       <option
         key={index}
         value={index}
-        selected={context.props.pageSelected === index ? 'selected' : ''}
       > {page.present.name}
       </option>
     ));
@@ -48,6 +46,7 @@ class AddPage extends React.Component {
         > <i className="fa fa-plus" aria-hidden="true" /> PAGE
         </button>
         <select
+          value={context.props.pageSelected}
           className="page-select"
           ref={s => (this.selected = s)}
           name="pages"

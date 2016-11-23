@@ -1,0 +1,118 @@
+.home-page {
+  color: white;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAG0lEQVQYV2P8XxUkyYADMIIkGdvWPccmP+gkAZZsGexuFgK2AAAAAElFTkSuQmCC);
+
+  .banner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 80px;
+    font-weight: 100;
+    height: 600px;
+    width: 600px;
+    border-radius: 50%;
+    background-color: rgba(0,0,0,.3);
+    overflow: hidden;
+    box-shadow: inset 0px 0px 100px 0px rgba(0,0,0,.75),
+    0px 0px 100px 0px coral;
+    
+  }
+
+  .top-bar {
+    height: 60px;
+    width: 100vw;
+    background-color: white;
+    position: absolute;
+    top: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    .login-signup {
+      color: rgba(0,0,0,.8);
+      cursor: pointer;
+      margin-right: 40px;
+      background-color: transparent;
+      border: 0px;
+      transition: color .3s;
+
+      &:hover {
+        color: coral;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  .form-visible {
+    transform: translateY(0);
+    position: absolute;
+    bottom: 0px;
+    z-index: 100;
+    height: calc(100vh - 60px);
+    width: 100vw;
+    background-color: white;
+    color: coral;
+    display: flex;
+    flex-align: center;
+    justify-content: center;
+    transition: transform .3s, opacity .3s;
+
+    .login-signup-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: -60px;
+
+      button {
+        cursor: pointer;
+        width: 35vw;
+        height: 40px;
+        border: 1px solid coral;
+        background-color: transparent;
+        color: coral;
+        transition: background-color, color, .3s;
+
+        &:hover {
+          background-color: coral;
+          color: white;
+        }
+      }
+
+      .submit-signup {
+        margin-top: 20px;
+      }
+
+      input {
+        border: 0px;
+        border-bottom: 1px solid rgba(0,0,0,.1);
+        height: 40px;
+        width: 35vw;
+        margin-bottom: 20px;
+        font-size: 20px;
+        font-weight: 100;
+
+        &:focus {
+          outline: 0px;
+          border-bottom: 1px solid coral;
+        }
+      }
+    }
+  }
+
+  .form-hidden {
+    width: 0px;
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}

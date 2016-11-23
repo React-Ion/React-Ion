@@ -9,7 +9,6 @@ $light-gray: rgba(0,0,0,.05);
   color: black !important;
   display: flex;
   height: 60px;
-  color: white;
   position: fixed;
   z-index: 200;
   top: 0px;
@@ -124,6 +123,7 @@ $light-gray: rgba(0,0,0,.05);
   }
 
   div {
+   color: rgba(0,0,0, .8);
    align-self: flex-start;
    flex: 1;
    border-right: 1px solid $light-gray;

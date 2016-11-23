@@ -26,6 +26,7 @@ const AddImage = ({
       <button
         onClick={() => toggleTextModal(
           'enter link url',
+          'text',
           callback,
         )}
       > <i className="fa fa-plus" aria-hidden="true" /> IMAGE

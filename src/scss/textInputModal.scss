@@ -28,6 +28,14 @@
     align-items: center;
     flex-direction: column;
 
+    &.preview-modal {
+      height: 100%;
+      width: 100%;
+      div, img {
+        box-shadow: none !important;
+      }
+    }
+
     .submit-button {
       cursor: pointer;
       width: 50%;
@@ -45,6 +53,7 @@
     }
 
     .close-button {
+      z-index: 100;
       cursor: pointer;
       background-color: transparent;
       border: none;

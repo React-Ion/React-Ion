@@ -118,7 +118,7 @@ export function formTreeData(routes) {
   let totalComponents = 0;
   const countComponents = (route) => {
     route.parent = null;
-    if (route.componentType !== 'Text') { totalComponents += 1; }
+    if (route.componentType !== 'Text' && route.componentType !== 'List') { totalComponents += 1; }
     route.children.forEach(child => countComponents(child));
   };
 
@@ -131,6 +131,6 @@ export function formTreeData(routes) {
     router: 1,
     routes: newTree,
   };
-
+  console.log(treeData);
   download(treeData);
 }

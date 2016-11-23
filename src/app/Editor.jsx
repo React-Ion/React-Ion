@@ -3,14 +3,18 @@ import Draggable from 'react-draggable';
 import { mapComponents } from '../lib/helpers';
 import TextInputModal from '../containers/tool_component/text/TextInputModal';
 import TextListInputModal from '../containers/tool_component/text/TextListInputModal';
+import PreviewModal from '../containers/tool_component/modals/PreviewModal';
 import Toolbar from '../containers/tool_component/toolbar/Toolbar';
 import EditorControls from '../containers/tool_component/toolbar/EditorControls';
 import ZoomPercent from '../containers/tool_component/inspector/ZoomPercent';
 import CurrentComponent from '../containers/tool_component/inspector/CurrentComponent';
 import LinkDisplay from '../containers/tool_component/inspector/LinkDisplay';
+import PreviewDisplay from '../containers/tool_component/inspector/PreviewDisplay';
+
 import '../scss/toolbar.scss';
 import '../scss/canvas.scss';
 import '../scss/editor.scss';
+import '../scss/index.scss';
 
 const Editor = ({ routes, selected, pageSelected, zoom }) => {
   const pageRoute = [routes[pageSelected].present];
@@ -19,8 +23,10 @@ const Editor = ({ routes, selected, pageSelected, zoom }) => {
     <div className="editor">
       <TextInputModal />
       <TextListInputModal />
+      <PreviewModal />
       <Toolbar />
       <EditorControls />
+      <PreviewDisplay />
       <ZoomPercent />
       <CurrentComponent />
       <LinkDisplay />
@@ -42,3 +48,4 @@ const Editor = ({ routes, selected, pageSelected, zoom }) => {
 };
 
 export default Editor;
+// export default store;

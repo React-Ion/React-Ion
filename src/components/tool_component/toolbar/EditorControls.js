@@ -25,6 +25,7 @@ const EditorControls = ({ info }) => {
     return (
       <div className="controls-wrapper">
         <Delete />
+        <AddPage />
         <TextColor />
         <FontSize />
         <SelectFont />

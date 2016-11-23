@@ -10,7 +10,7 @@ import {
   removeProject,
   saveProject,
   updateProject,
-} from '../../src/lib/api-methods';
+} from '../../../src/lib/api-methods';
 
 describe('API Methods', () => {
   // describe('Sign Up', () => {
