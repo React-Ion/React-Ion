@@ -9,7 +9,7 @@ module.exports.getUserProjects = () => {
   };
 
   return fetch('/api/user/projects', options)
-    .then(projects => projects.text())
+    .then(projects => projects.json())
     .catch(err => err);
 };
 
@@ -22,7 +22,7 @@ module.exports.login = (username, password) => {
   };
 
   return fetch('/login', options)
-    .then(user => user.text())
+    .then(user => user.json())
     .catch(err => err);
 };
 
@@ -34,7 +34,7 @@ module.exports.signup = (username, password) => {
   };
 
   return fetch('/signup', options)
-    .then(user => user.text())
+    .then(user => user.json())
     .catch(err => err);
 };
 
@@ -42,7 +42,7 @@ module.exports.logout = () => {
   const options = { method: 'GET' };
 
   return fetch('/logout', options)
-    .then(user => user.text())
+    .then(user => user.json())
     .catch(err => err);
 };
 
@@ -53,7 +53,7 @@ module.exports.getProject = (projectId) => {
   };
 
   return fetch(`/api/project/${projectId}`, options)
-    .then(project => project.text())
+    .then(project => project.json())
     .catch(err => err);
 };
 
@@ -64,7 +64,7 @@ module.exports.getAllProjects = () => {
   };
 
   return fetch('/api/project/', options)
-    .then(projects => projects.text())
+    .then(projects => projects.json())
     .catch(err => err);
 };
 
@@ -76,7 +76,7 @@ module.exports.removeProject = (projectId) => {
   };
 
   return fetch(`/api/project/${projectId}`, options)
-    .then(project => project.text());
+    .then(project => project.json());
 };
 
 module.exports.createProject = (projectData) => {
@@ -88,7 +88,7 @@ module.exports.createProject = (projectData) => {
   };
 
   return fetch('/api/project/', options)
-    .then(project => project.text());
+    .then(project => project.json());
 };
 
 module.exports.updateProject = (projectId, newProps) => {
@@ -100,5 +100,5 @@ module.exports.updateProject = (projectId, newProps) => {
   };
 
   return fetch(`/api/project/${projectId}`, options)
-    .then(project => project.text());
+    .then(project => project.json());
 };
