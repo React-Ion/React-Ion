@@ -11,10 +11,11 @@ const loginHandler = (e) => {
   const form = document.getElementById('login-form');
   const username = form.elements[0].value;
   const password = form.elements[1].value;
-  // login(username, password);
-    // .then((user) => {
-    //   if (user) { this.setState({ loggedIn: true }); }
-    // });
+  // login(username, password)
+  //   .then((user) => {
+  //     console.log(user);
+  //     // if (user) { this.setState({ loggedIn: true }); }
+  //   });
 };
 
 const signupHandler = (e) => {
@@ -22,10 +23,11 @@ const signupHandler = (e) => {
   const form = document.getElementById('login-form');
   const username = form.elements[0].value;
   const password = form.elements[1].value;
-  // signup(username, password);
-    // .then((user) => {
-    //   if (user) { this.setState({ loggedIn: true }); }
-    // });
+  // signup(username, password)
+  //   .then((user) => {
+  //     console.log(user);
+  //     // if (user) { this.setState({ loggedIn: true }); }
+  //   });
 };
 
 class Home extends React.Component {
