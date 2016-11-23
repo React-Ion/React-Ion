@@ -5,6 +5,14 @@ import store from '../store/store';
 import '../scss/HomePage.scss';
 import '../scss/index.scss';
 
+const loginHandler = (e) => {
+  console.log(e.currentTarget);
+};
+
+const signupHandler = (e) => {
+  console.log(e.currentTarget);
+};
+
 class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -19,6 +27,7 @@ class Home extends React.Component {
   toggleForm() {
     this.setState({ activeForm: !this.state.activeForm });
   }
+
 
   render() {
     return (
