@@ -1,3 +1,6 @@
+const port = process.env.PORT || 3000;
+const host = `http://localhost:${port}`;
+
 module.exports.download = (projectTree) => {
   window.location.href = `/api/project/generate?tree=${encodeURIComponent(JSON.stringify(projectTree))}`;
 };
@@ -8,11 +11,10 @@ module.exports.getUserProjects = () => {
     credentials: 'include',
   };
 
-  return fetch('/api/user/projects', options)
+  return fetch(`${host}/api/user/projects`, options)
     .then(projects => projects.json())
     .catch(err => err);
 };
-
 
 module.exports.getProject = (projectId) => {
   const options = {
@@ -20,7 +22,7 @@ module.exports.getProject = (projectId) => {
     credentials: 'include',
   };
 
-  return fetch(`/api/project/${projectId}`, options)
+  return fetch(`${host}/api/project/${projectId}`, options)
     .then(project => project.json())
     .catch(err => err);
 };
@@ -31,7 +33,7 @@ module.exports.getAllProjects = () => {
     credentials: 'include',
   };
 
-  return fetch('/api/project/', options)
+  return fetch(`${host}/api/project/`, options)
     .then(projects => projects.json())
     .catch(err => err);
 };
@@ -42,7 +44,7 @@ module.exports.removeProject = (projectId) => {
     credentials: 'include',
   };
 
-  return fetch(`/api/project/${projectId}`, options)
+  return fetch(`${host}/api/project/${projectId}`, options)
     .then(project => project.json());
 };
 
@@ -54,7 +56,7 @@ module.exports.createProject = (projectData) => {
     credentials: 'include',
   };
 
-  return fetch('/api/project/', options)
+  return fetch(`${host}/api/project/`, options)
     .then(project => project.json());
 };
 
@@ -66,7 +68,7 @@ module.exports.updateProject = (projectId, newProps) => {
     credentials: 'include',
   };
 
-  return fetch(`/api/project/${projectId}`, options)
+  return fetch(`${host}/api/project/${projectId}`, options)
     .then(project => project.json());
 };
 
@@ -80,7 +82,7 @@ module.exports.signup = (username, password) => {
     credentials: 'include',
   };
 
-  return fetch('/signup', options)
+  return fetch(`${host}/signup`, options)
     .then(user => user.json())
     .catch(err => err);
 };
@@ -93,7 +95,7 @@ module.exports.login = (username, password) => {
     credentials: 'include',
   };
 
-  return fetch('/login', options)
+  return fetch(`${host}/login`, options)
     .then(user => user.json())
     .catch(err => err);
 };
@@ -101,7 +103,7 @@ module.exports.login = (username, password) => {
 module.exports.logout = () => {
   const options = { method: 'GET' };
 
-  return fetch('/logout', options)
+  return fetch(`${host}/logout`, options)
     .then(user => user.json())
     .catch(err => err);
 };
@@ -112,7 +114,7 @@ module.exports.authenticate = () => {
     credentials: 'include',
   };
 
-  return fetch('/authenticate', options)
+  return fetch(`${host}/authenticate`, options)
     .then(status => status.json())
     .catch(err => err);
 };

@@ -71,6 +71,15 @@ class Home extends React.Component {
       });
   }
 
+  authCheck() {
+    authenticate().then((status) => {
+      console.log('status', status);
+      // if (status.data) {
+      //   this.setState({ loggedIn: true });
+      // }
+    });
+  }
+
   render() {
     return (
       <div className="home-page">
@@ -79,7 +88,7 @@ class Home extends React.Component {
             this.state.loggedIn &&
             <button
               className="login-signup"
-              onClick={this.logoutHandler}
+              onClick={this.authChecl.bind(this)}
             > LOGOUT
             </button>
           }
