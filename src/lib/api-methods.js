@@ -3,7 +3,14 @@ module.exports.download = (projectTree) => {
 };
 
 module.exports.getUserProjects = () => {
+  const options = {
+    method: 'GET',
+    credentials: 'include',
+  };
 
+  return fetch('/api/user/projects', options)
+    .then(projects => console.log(projects.text()))
+    .catch(err => err);
 };
 
 module.exports.login = (username, password) => {
@@ -15,7 +22,7 @@ module.exports.login = (username, password) => {
   };
 
   return fetch('/login', options)
-    .then(userInfo => userInfo)
+    .then(userInfo => console.log(userInfo.text()))
     .catch(err => err);
 };
 
@@ -27,7 +34,7 @@ module.exports.signup = (username, password) => {
   };
 
   return fetch('/signup', options)
-    .then(userInfo => userInfo)
+    .then(userInfo => console.log(userInfo.text()))
     .catch(err => err);
 };
 
@@ -35,7 +42,7 @@ module.exports.logout = () => {
   const options = { method: 'GET' };
 
   return fetch('/logout', options)
-    .then(userInfo => userInfo)
+    .then(userInfo => console.log(userInfo.text()))
     .catch(err => err);
 };
 
@@ -62,8 +69,14 @@ module.exports.getAllProjects = () => {
 };
 
 
-module.exports.removeProject = () => {
+module.exports.removeProject = (projectId) => {
+  const options = {
+    method: 'DELETE',
+    credentials: 'include',
+  };
 
+  return fetch(`/api/project/${projectId}`, options)
+    .then(projectInfo => projectInfo.text());
 };
 
 module.exports.createProject = (projectData) => {
@@ -75,9 +88,17 @@ module.exports.createProject = (projectData) => {
   };
 
   return fetch('/api/project/', options)
-    .then(projectInfo => projectInfo);
+    .then(projectInfo => projectInfo.text());
 };
 
-module.exports.updateProject = () => {
+module.exports.updateProject = (projectId, newProps) => {
+  const options = {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(newProps),
+    credentials: 'include',
+  };
 
+  return fetch(`/api/project/${projectId}`, options)
+    .then(projectInfo => projectInfo.text());
 };

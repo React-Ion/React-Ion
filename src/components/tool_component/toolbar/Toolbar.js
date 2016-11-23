@@ -8,6 +8,9 @@ import {
   createProject,
   getProject,
   getAllProjects,
+  removeProject,
+  updateProject,
+  getUserProjects,
 } from '../../../lib/api-methods';
 import '../../../scss/toolbar.scss';
 
@@ -42,10 +45,17 @@ const Toolbar = ({
     <ToolbarButton click={() => { login('Cheney123', '123'); }}>
       <i className="fa fa-download" aria-hidden="true" />
     </ToolbarButton>
-    <ToolbarButton click={() => { getProject(1333); }}>
+    <ToolbarButton click={() => { removeProject(1333); }}>
       <i className="fa fa-download" aria-hidden="true" />
     </ToolbarButton>
-    <ToolbarButton click={() => { getAllProjects(); }}>
+    <ToolbarButton click={() => {
+      updateProject(1334, {
+        project_tree: 'aksdj15155555555555555555555',
+      });
+    }}>
+      <i className="fa fa-download" aria-hidden="true" />
+    </ToolbarButton>
+    <ToolbarButton click={() => { getUserProjects(); }}>
       <i className="fa fa-download" aria-hidden="true" />
     </ToolbarButton>
   </div>
@@ -67,5 +77,11 @@ export default Toolbar;
     //     });
     //   }}
     // >
+    //   <i className="fa fa-download" aria-hidden="true" />
+    // </ToolbarButton>
+    // <ToolbarButton click={() => { getProject(1333); }}>
+    //   <i className="fa fa-download" aria-hidden="true" />
+    // </ToolbarButton>
+    // <ToolbarButton click={() => { getAllProjects(); }}>
     //   <i className="fa fa-download" aria-hidden="true" />
     // </ToolbarButton>
