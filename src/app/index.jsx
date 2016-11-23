@@ -2,15 +2,30 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import store from '../store/store';
+import { login, signup } from '../lib/api-methods';
 import '../scss/HomePage.scss';
 import '../scss/index.scss';
 
 const loginHandler = (e) => {
-  console.log(e.currentTarget);
+  e.preventDefault();
+  const form = document.getElementById('login-form');
+  const username = form.elements[0].value;
+  const password = form.elements[1].value;
+  // login(username, password);
+    // .then((user) => {
+    //   if (user) { this.setState({ loggedIn: true }); }
+    // });
 };
 
 const signupHandler = (e) => {
-  console.log(e.currentTarget);
+  e.preventDefault();
+  const form = document.getElementById('login-form');
+  const username = form.elements[0].value;
+  const password = form.elements[1].value;
+  // signup(username, password);
+    // .then((user) => {
+    //   if (user) { this.setState({ loggedIn: true }); }
+    // });
 };
 
 class Home extends React.Component {
@@ -19,6 +34,7 @@ class Home extends React.Component {
 
     this.state = {
       activeForm: false,
+      loggedIn: false,
     };
 
     this.toggleForm = this.toggleForm.bind(this);
@@ -51,24 +67,22 @@ class Home extends React.Component {
           }
         >
           <div className="login-signup-form">
-            <div>
+            <form id="login-form">
               <input
                 type="text"
                 placeholder="username"
               />
-            </div>
-            <div>
               <input
                 type="password"
                 placeholder="password"
               />
-            </div>
-            <button className="submit-login">
-              LOGIN
-            </button>
-            <button className="submit-signup">
-              SIGNUP & LOGIN
-            </button>
+              <button type="submit" className="submit-login" onClick={loginHandler}>
+                LOGIN
+              </button>
+              <button type="submit" className="submit-signup" onClick={signupHandler}>
+                SIGNUP & LOGIN
+              </button>
+            </form>
           </div>
         </div>
       </div>
