@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 class ToolbarButton extends React.Component {
   constructor(props) {
@@ -30,5 +30,9 @@ class ToolbarButton extends React.Component {
     );
   }
 }
+
+ToolbarButton.propTypes = {
+  children: PropTypes.object.isRequired,
+};
 
 export default ToolbarButton;

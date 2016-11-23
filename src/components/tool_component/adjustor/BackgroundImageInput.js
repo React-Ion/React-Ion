@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 const BackgroundImageInput = ({ updateProps, selected, toggleTextModal }) => {
   const callback = (value) => {
@@ -21,6 +21,12 @@ const BackgroundImageInput = ({ updateProps, selected, toggleTextModal }) => {
       </button>
     </div>
   );
+};
+
+BackgroundImageInput.propTypes = {
+  selected: PropTypes.number.isRequired,
+  updateProps: PropTypes.func.isRequired,
+  toggleTextModal: PropTypes.func.isRequired,
 };
 
 export default BackgroundImageInput;

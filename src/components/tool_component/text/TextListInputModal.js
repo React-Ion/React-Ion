@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import '../../../scss/textInputModal.scss';
 
 class ListTextInputModal extends React.Component {
@@ -75,5 +75,10 @@ class ListTextInputModal extends React.Component {
     );
   }
 }
+
+ListTextInputModal.propTypes = {
+  textModal: PropTypes.object.isRequired,
+  closeTextModal: PropTypes.func.isRequired,
+};
 
 export default ListTextInputModal;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 const capitalizeFirstLetter = s => s.charAt(0).toUpperCase() + s.slice(1);
 const makeComponentName = string => string.split(' ').map(word => capitalizeFirstLetter(word)).join('');
@@ -59,5 +59,17 @@ class AddPage extends React.Component {
     );
   }
 }
+
+AddPage.propTypes = {
+  store: PropTypes.object.isRequired,
+  routes: PropTypes.object.isRequired,
+  selected: PropTypes.number.isRequired,
+  pageSelected: PropTypes.number.isRequired,
+  nextId: PropTypes.number.isRequired,
+  setSelected: PropTypes.func.isRequired,
+  setPageSelected: PropTypes.func.isRequired,
+  addPage: PropTypes.func.isRequired,
+  toggleTextModal: PropTypes.func.isRequired,
+};
 
 export default AddPage;

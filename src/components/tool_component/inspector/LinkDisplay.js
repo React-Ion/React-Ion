@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 const LinkDisplay = ({ url }) => {
   if (url) {
@@ -9,5 +9,9 @@ const LinkDisplay = ({ url }) => {
     );
   } return null;
 };
+
+// LinkDisplay.propTypes = {
+//   url: PropTypes.string.isRequired,
+// };
 
 export default LinkDisplay;

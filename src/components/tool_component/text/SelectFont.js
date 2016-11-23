@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 class SelectFont extends React.Component {
   render() {
@@ -23,5 +23,10 @@ class SelectFont extends React.Component {
     );
   }
 }
+
+SelectFont.propTypes = {
+  selected: PropTypes.number.isRequired,
+  updateProps: PropTypes.func.isRequired,
+};
 
 export default SelectFont;

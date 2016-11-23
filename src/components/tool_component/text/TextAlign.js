@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 const TextAlign = ({ updateProps, selected }) => (
   <div>
@@ -28,5 +28,10 @@ const TextAlign = ({ updateProps, selected }) => (
     </button>
   </div>
 );
+
+TextAlign.propTypes = {
+  selected: PropTypes.number.isRequired,
+  updateProps: PropTypes.func.isRequired,
+};
 
 export default TextAlign;

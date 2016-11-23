@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 const ZoomPercent = ({ zoom }) => (
   <span className="zoom-percent">
@@ -6,5 +6,9 @@ const ZoomPercent = ({ zoom }) => (
     {`${Math.round(100 * (zoom))}%`}
   </span>
 );
+
+ZoomPercent.propTypes = {
+  zoom: PropTypes.number.isRequired,
+};
 
 export default ZoomPercent;

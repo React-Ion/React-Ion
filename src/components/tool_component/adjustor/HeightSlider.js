@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import React from 'react';
+import React, { PropTypes } from 'react';
 import Slider from './Slider';
 
 const HeightSlider = ({ updateProps, selected, info, store }) => {
@@ -26,6 +26,13 @@ const HeightSlider = ({ updateProps, selected, info, store }) => {
       />
     </div>
   );
+};
+
+HeightSlider.propTypes = {
+  store: PropTypes.object.isRequired,
+  info: PropTypes.object.isRequired,
+  selected: PropTypes.number.isRequired,
+  updateProps: PropTypes.func.isRequired,
 };
 
 export default HeightSlider;

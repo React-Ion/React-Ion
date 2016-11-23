@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 const RowColumnPicker = ({ updateProps, selected }) => (
   <div className="row-column-picker">
@@ -20,5 +20,10 @@ const RowColumnPicker = ({ updateProps, selected }) => (
     </button>
   </div>
 );
+
+RowColumnPicker.propTypes = {
+  selected: PropTypes.number.isRequired,
+  updateProps: PropTypes.func.isRequired,
+};
 
 export default RowColumnPicker;

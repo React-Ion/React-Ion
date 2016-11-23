@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 class TextColor extends React.Component {
   render() {
@@ -21,5 +21,10 @@ class TextColor extends React.Component {
     );
   }
 }
+
+TextColor.propTypes = {
+  selected: PropTypes.number.isRequired,
+  updateProps: PropTypes.func.isRequired,
+};
 
 export default TextColor;

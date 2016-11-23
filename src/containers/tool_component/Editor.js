@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Editor from '../../app/Editor';
+import Editor from '../../components/tool_component/Editor';
 
 const mapStateToProps = state => ({
   routes: state.routes.appPages,

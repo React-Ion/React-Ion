@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import '../../../scss/editorControls.scss';
 import Delete from '../../../containers/tool_component/addremove/Delete';
 import TextColor from '../../../containers/tool_component/text/TextColor';
@@ -51,6 +51,10 @@ const EditorControls = ({ info }) => {
       <FlexSlider />
     </div>
   );
+};
+
+EditorControls.propTypes = {
+  info: PropTypes.object.isRequired,
 };
 
 export default EditorControls;

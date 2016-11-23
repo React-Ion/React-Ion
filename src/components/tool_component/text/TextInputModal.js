@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import '../../../scss/textInputModal.scss';
 
 class TextInputModal extends React.Component {
@@ -41,5 +41,10 @@ class TextInputModal extends React.Component {
     );
   }
 }
+
+TextInputModal.propTypes = {
+  textModal: PropTypes.object.isRequired,
+  closeTextModal: PropTypes.func.isRequired,
+};
 
 export default TextInputModal;

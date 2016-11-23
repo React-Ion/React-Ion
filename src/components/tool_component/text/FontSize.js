@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 class FontSize extends React.Component {
   componentDidMount() {
@@ -40,5 +40,11 @@ class FontSize extends React.Component {
     );
   }
 }
+
+FontSize.propTypes = {
+  selected: PropTypes.number.isRequired,
+  info: PropTypes.object.isRequired,
+  updateProps: PropTypes.func.isRequired,
+};
 
 export default FontSize;

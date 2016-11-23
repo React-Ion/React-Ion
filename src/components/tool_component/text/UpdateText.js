@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 const UpdateText = ({ toggleTextModal, updateProps, selected }) => {
   const callback = (value) => {
@@ -20,6 +20,12 @@ const UpdateText = ({ toggleTextModal, updateProps, selected }) => {
       </button>
     </div>
   );
+};
+
+UpdateText.propTypes = {
+  selected: PropTypes.number.isRequired,
+  updateProps: PropTypes.func.isRequired,
+  toggleTextModal: PropTypes.func.isRequired,
 };
 
 export default UpdateText;

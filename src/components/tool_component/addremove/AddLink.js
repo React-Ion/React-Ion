@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 const AddLink = ({
   toggleTextModal,
@@ -27,6 +27,13 @@ const AddLink = ({
       </button>
     </div>
   );
+};
+
+AddLink.propTypes = {
+  selected: PropTypes.number.isRequired,
+  setSelected: PropTypes.func.isRequired,
+  updateInfos: PropTypes.func.isRequired,
+  toggleTextModal: PropTypes.func.isRequired,
 };
 
 export default AddLink;

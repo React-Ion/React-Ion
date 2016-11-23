@@ -1,14 +1,6 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 class PreviewDisplay extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  callback() {
-
-  }
-
   render() {
     return (
       <button
@@ -24,6 +16,10 @@ class PreviewDisplay extends React.Component {
       </button>
     );
   }
+}
+
+PreviewDisplay.propTypes = {
+  toggleTextModal: PropTypes.func.isRequired,
 };
 
 export default PreviewDisplay;

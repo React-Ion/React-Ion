@@ -1,4 +1,4 @@
 {
   "index": "./src/app/index.jsx",
-  "editor": "./src/app/App.jsx"
+  "editor": "./src/app/editor.jsx"
 }

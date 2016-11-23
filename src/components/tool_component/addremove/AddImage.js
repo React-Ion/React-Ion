@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 const AddImage = ({
   addChild,
@@ -33,6 +33,13 @@ const AddImage = ({
       </button>
     </div>
   );
+};
+
+AddImage.propTypes = {
+  selected: PropTypes.number.isRequired,
+  nextId: PropTypes.number.isRequired,
+  addChild: PropTypes.func.isRequired,
+  toggleTextModal: PropTypes.func.isRequired,
 };
 
 export default AddImage;

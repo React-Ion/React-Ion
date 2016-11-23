@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import '../../../scss/textInputModal.scss';
 import { mapComponents } from '../../../lib/helpers';
 
@@ -34,5 +34,12 @@ class TextInputModal extends React.Component {
     );
   }
 }
+
+
+TextInputModal.propTypes = {
+  pageSelected: PropTypes.number.isRequired,
+  textModal: PropTypes.object.isRequired,
+  closeTextModal: PropTypes.func.isRequired,
+};
 
 export default TextInputModal;

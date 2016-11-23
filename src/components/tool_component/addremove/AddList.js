@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 const ListInput = ({ selected, nextId, addChild, toggleTextModal }) => {
   const callback = (value) => {
@@ -23,6 +23,13 @@ const ListInput = ({ selected, nextId, addChild, toggleTextModal }) => {
       </button>
     </div>
   );
+};
+
+ListInput.propTypes = {
+  selected: PropTypes.number.isRequired,
+  nextId: PropTypes.number.isRequired,
+  addChild: PropTypes.func.isRequired,
+  toggleTextModal: PropTypes.func.isRequired,
 };
 
 export default ListInput;

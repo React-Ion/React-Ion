@@ -90,13 +90,7 @@ class Home extends React.Component {
   }
 }
 
-const App = () => (
-  <Provider store={store}>
-    <Home />
-  </Provider>
-);
 
-
-ReactDOM.render(<App />, document.getElementById('App'));
+ReactDOM.render(<Home />, document.getElementById('App'));
 
 export default store;

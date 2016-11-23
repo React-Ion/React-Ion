@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 const AddBlock = ({
   addChild,
@@ -24,5 +24,13 @@ const AddBlock = ({
     </button>
   </div>
 );
+
+AddBlock.propTypes = {
+  selected: PropTypes.number.isRequired,
+  nextId: PropTypes.number.isRequired,
+  addChild: PropTypes.func.isRequired,
+  removeChild: PropTypes.func.isRequired,
+};
+
 
 export default AddBlock;

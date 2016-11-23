@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 const NameInput = ({ toggleTextModal, updateInfos, selected, setSelected }) => {
   const capitalizeFirstLetter = s => s.charAt(0).toUpperCase() + s.slice(1);
@@ -25,6 +25,13 @@ const NameInput = ({ toggleTextModal, updateInfos, selected, setSelected }) => {
       </button>
     </div>
   );
+};
+
+NameInput.propTypes = {
+  selected: PropTypes.number.isRequired,
+  setSelected: PropTypes.func.isRequired,
+  toggleTextModal: PropTypes.func.isRequired,
+  updateInfos: PropTypes.func.isRequired,
 };
 
 export default NameInput;

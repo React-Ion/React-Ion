@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 class ColorPicker extends React.Component {
   render() {
@@ -21,5 +21,10 @@ class ColorPicker extends React.Component {
     );
   }
 }
+
+ColorPicker.propTypes = {
+  selected: PropTypes.number.isRequired,
+  updateProps: PropTypes.func.isRequired,
+};
 
 export default ColorPicker;

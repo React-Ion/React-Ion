@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 const Delete = ({
   selected,
@@ -11,5 +11,10 @@ const Delete = ({
     </button>
   </div>
 );
+
+Delete.propTypes = {
+  selected: PropTypes.number.isRequired,
+  removeChild: PropTypes.func.isRequired,
+};
 
 export default Delete;
