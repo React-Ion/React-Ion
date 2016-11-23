@@ -22,7 +22,7 @@ module.exports.login = (username, password) => {
   };
 
   return fetch('/login', options)
-    .then(user => user.json())
+    .then(user => user.text())
     .catch(err => err);
 };
 

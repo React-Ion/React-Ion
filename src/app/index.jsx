@@ -6,30 +6,6 @@ import { login, signup } from '../lib/api-methods';
 import '../scss/HomePage.scss';
 import '../scss/index.scss';
 
-const loginHandler = (e) => {
-  e.preventDefault();
-  const form = document.getElementById('login-form');
-  const username = form.elements[0].value;
-  const password = form.elements[1].value;
-  // login(username, password)
-  //   .then((user) => {
-  //     console.log(user);
-  //     // if (user) { this.setState({ loggedIn: true }); }
-  //   });
-};
-
-const signupHandler = (e) => {
-  e.preventDefault();
-  const form = document.getElementById('login-form');
-  const username = form.elements[0].value;
-  const password = form.elements[1].value;
-  // signup(username, password)
-  //   .then((user) => {
-  //     console.log(user);
-  //     // if (user) { this.setState({ loggedIn: true }); }
-  //   });
-};
-
 class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -40,12 +16,41 @@ class Home extends React.Component {
     };
 
     this.toggleForm = this.toggleForm.bind(this);
+    this.loginHandler = this.loginHandler.bind(this);
+    this.signupHandler = this.signupHandler.bind(this);
   }
 
   toggleForm() {
     this.setState({ activeForm: !this.state.activeForm });
   }
 
+  loginHandler(e) {
+    e.preventDefault();
+    const form = document.getElementById('login-form');
+    const username = form.elements[0].value;
+    const password = form.elements[1].value;
+    login(username, password)
+      .then((user) => {
+        if (user.data) {
+          this.setState({ loggedIn: true });
+        }
+        console.log('this.loggedIn', this.state.loggedIn);
+      });
+  }
+
+  signupHandler(e) {
+    e.preventDefault();
+    const form = document.getElementById('login-form');
+    const username = form.elements[0].value;
+    const password = form.elements[1].value;
+    signup(username, password)
+      .then((user) => {
+        if (user.data) {
+          this.setState({ loggedIn: true });
+        }
+        console.log('this.loggedIn', this.state.loggedIn);
+      });
+  }
 
   render() {
     return (
@@ -78,10 +83,10 @@ class Home extends React.Component {
                 type="password"
                 placeholder="password"
               />
-              <button type="submit" className="submit-login" onClick={loginHandler}>
+              <button type="submit" className="submit-login" onClick={this.loginHandler}>
                 LOGIN
               </button>
-              <button type="submit" className="submit-signup" onClick={signupHandler}>
+              <button type="submit" className="submit-signup" onClick={this.signupHandler}>
                 SIGNUP & LOGIN
               </button>
             </form>
