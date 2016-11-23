@@ -13,38 +13,6 @@ module.exports.getUserProjects = () => {
     .catch(err => err);
 };
 
-module.exports.login = (username, password) => {
-  const options = {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ username, password }),
-    credentials: 'include',
-  };
-
-  return fetch('/login', options)
-    .then(user => user.text())
-    .catch(err => err);
-};
-
-module.exports.signup = (username, password) => {
-  const options = {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ username, password }),
-  };
-
-  return fetch('/signup', options)
-    .then(user => user.json())
-    .catch(err => err);
-};
-
-module.exports.logout = () => {
-  const options = { method: 'GET' };
-
-  return fetch('/logout', options)
-    .then(user => user.json())
-    .catch(err => err);
-};
 
 module.exports.getProject = (projectId) => {
   const options = {
@@ -67,7 +35,6 @@ module.exports.getAllProjects = () => {
     .then(projects => projects.json())
     .catch(err => err);
 };
-
 
 module.exports.removeProject = (projectId) => {
   const options = {
@@ -101,4 +68,51 @@ module.exports.updateProject = (projectId, newProps) => {
 
   return fetch(`/api/project/${projectId}`, options)
     .then(project => project.json());
+};
+
+// User Authentication
+
+module.exports.signup = (username, password) => {
+  const options = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ username, password }),
+    credentials: 'include',
+  };
+
+  return fetch('/signup', options)
+    .then(user => user.json())
+    .catch(err => err);
+};
+
+module.exports.login = (username, password) => {
+  const options = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ username, password }),
+    credentials: 'include',
+  };
+
+  return fetch('/login', options)
+    .then(user => user.json())
+    .catch(err => err);
+};
+
+module.exports.logout = () => {
+  const options = { method: 'GET' };
+
+  return fetch('/logout', options)
+    .then(user => user.json())
+    .catch(err => err);
+};
+
+module.exports.authenticate = () => {
+  const options = {
+    method: 'GET',
+    credentials: 'include',
+  };
+
+  return fetch('/authenticate', options)
+    .then(status => status.json())
+    .catch(err => err);
 };
