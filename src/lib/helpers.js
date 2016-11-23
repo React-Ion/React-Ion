@@ -27,12 +27,11 @@ export function getValue(key, id, routes) {
   return value;
 }
 
-function capitalizeFirstLetter(string) {
+export function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 export function makeComponentName(string) {
-  console.log(string.split(' '));
   return string.split(' ').map(word => capitalizeFirstLetter(word)).join('');
 }
 
@@ -116,6 +115,7 @@ export function formTreeData(routes) {
   const newRoutes = _.cloneDeep(routes);
   const newTree = [];
   let totalComponents = 0;
+
   const countComponents = (route) => {
     route.parent = null;
     if (route.componentType !== 'Text' && route.componentType !== 'List') { totalComponents += 1; }
@@ -131,6 +131,6 @@ export function formTreeData(routes) {
     router: 1,
     routes: newTree,
   };
-  console.log(treeData);
+  
   download(treeData);
 }

@@ -10,6 +10,7 @@ import ZoomPercent from '../../containers/tool_component/inspector/ZoomPercent';
 import CurrentComponent from '../../containers/tool_component/inspector/CurrentComponent';
 import LinkDisplay from '../../containers/tool_component/inspector/LinkDisplay';
 import PreviewDisplay from '../../containers/tool_component/inspector/PreviewDisplay';
+import Shortcut from '../../containers/tool_component/toolbar/Shortcuts';
 
 import '../../scss/toolbar.scss';
 import '../../scss/canvas.scss';
@@ -30,6 +31,7 @@ const Editor = ({ routes, selected, pageSelected, zoom }) => {
       <ZoomPercent />
       <CurrentComponent />
       <LinkDisplay />
+      <Shortcut />
       <div
         className="canvas-wrapper"
         style={{

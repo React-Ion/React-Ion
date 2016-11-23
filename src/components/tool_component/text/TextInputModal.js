@@ -2,6 +2,15 @@ import React, { PropTypes } from 'react';
 import '../../../scss/textInputModal.scss';
 
 class TextInputModal extends React.Component {
+
+  handleKeyPress(e) {
+    if (e.charCode === 13) {
+      this.props.textModal.callback(this.text.value);
+      this.props.closeTextModal();
+      this.text.value = '';
+    }
+  }
+
   render() {
     const { textModal, closeTextModal } = this.props;
     const { callback, showing, action, placeholder } = textModal;
@@ -23,6 +32,7 @@ class TextInputModal extends React.Component {
           <input
             placeholder={placeholder.toUpperCase()}
             type="text"
+            onKeyPress={this.handleKeyPress.bind(this)}
             ref={i => (this.text = i)}
           />
           <button

@@ -6,9 +6,10 @@ class TextInputModal extends React.Component {
   render() {
 
     const pageRoute = [this.props.routes[this.props.pageSelected].present];
-    console.log(pageRoute);
+
     const { textModal, closeTextModal } = this.props;
     const { callback, showing, action, placeholder } = textModal;
+
     let className = 'modal-hidden';
     const wrapperStyle = {};
     if (action === 'preview') {
