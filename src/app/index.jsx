@@ -126,7 +126,6 @@ class Home extends React.Component {
   }
 }
 
-
 ReactDOM.render(<Home />, document.getElementById('App'));
 
 export default store;
