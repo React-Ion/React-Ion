@@ -20,47 +20,58 @@ class Home extends React.Component {
     this.signupHandler = this.signupHandler.bind(this);
   }
 
+  // componentWillMount() {
+    
+  // }
+
   toggleForm() {
     this.setState({ activeForm: !this.state.activeForm });
   }
 
   loginHandler(e) {
     e.preventDefault();
-    const form = document.getElementById('login-form');
-    const username = form.elements[0].value;
-    const password = form.elements[1].value;
-    login(username, password)
-      .then((user) => {
-        if (user.data) {
-          this.setState({ loggedIn: true });
-        }
-        console.log('this.loggedIn', this.state.loggedIn);
-      });
+    // const form = document.getElementById('login-form');
+    // const username = form.elements[0].value;
+    // const password = form.elements[1].value;
+    // login(username, password)
+    //   .then((user) => {
+    //     if (user.data) {
+    //       this.setState({ loggedIn: true });
+    //     }
+    //     console.log('this.loggedIn', this.state.loggedIn);
+    //   });
+    this.toggleForm();
+    this.setState({ loggedIn: true });
   }
 
   signupHandler(e) {
     e.preventDefault();
-    const form = document.getElementById('login-form');
-    const username = form.elements[0].value;
-    const password = form.elements[1].value;
-    signup(username, password)
-      .then((user) => {
-        if (user.data) {
-          this.setState({ loggedIn: true });
-        }
-        console.log('this.loggedIn', this.state.loggedIn);
-      });
+    // const form = document.getElementById('login-form');
+    // const username = form.elements[0].value;
+    // const password = form.elements[1].value;
+    // signup(username, password)
+    //   .then((user) => {
+    //     if (user.data) {
+    //       this.setState({ loggedIn: true });
+    //     }
+    //     console.log('this.loggedIn', this.state.loggedIn);
+    //   });
+    this.toggleForm();
+    this.setState({ loggedIn: true });
   }
 
   render() {
     return (
       <div className="home-page">
         <div className="top-bar">
-          <button
-            className="login-signup"
-            onClick={this.toggleForm}
-          > LOGIN | SIGNUP
-          </button>
+          {
+            !this.state.loggedIn &&
+            <button
+              className="login-signup"
+              onClick={this.toggleForm}
+            > LOGIN | SIGNUP
+            </button>
+          }
         </div>
         <div className="banner">
           <div>
