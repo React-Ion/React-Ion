@@ -1,5 +1,5 @@
 const port = process.env.PORT || 3000;
-const host = `http://localhost:${port}`;
+const host = process.env === 'production' ? '' : `http://localhost:${port}`;
 
 module.exports.download = (projectTree) => {
   window.location.href = `/api/project/generate?tree=${encodeURIComponent(JSON.stringify(projectTree))}`;
