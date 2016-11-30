@@ -9,12 +9,7 @@ class Carousels extends Component {
   }
 
   render() {
-    const arrayOfImages = this.props.images.map((image, index) => {
-      return { original: image, thumbnail: image };
-    });
-
-    const { settings, setSelected, selected, id } = this.props;
-    
+    const { settings, setSelected, selected, id, content } = this.props;
     const divStyles = {
       width: '100%',
       padding: '10px',
@@ -27,10 +22,10 @@ class Carousels extends Component {
     return (
       <div style={divStyles} onClick={e => setSelected(e, id)}>
         <ImageGallery
-          items={arrayOfImages}
+          items={content}
           {...settings}
-          />
-        </div>
+        />
+      </div>
     );
   }
 }

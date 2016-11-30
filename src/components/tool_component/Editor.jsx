@@ -5,6 +5,7 @@ import { mapComponents, rebuildTree } from '../../lib/helpers';
 import { getProject, getUserInfo, getProjectOwner } from '../../lib/api-methods';
 import TextInputModal from '../../containers/tool_component/text/TextInputModal';
 import TextListInputModal from '../../containers/tool_component/text/TextListInputModal';
+import CarouselsInputModal from '../../containers/tool_component/text/CarouselsInputModal';
 import PreviewModal from '../../containers/tool_component/modals/PreviewModal';
 import Toolbar from '../../containers/tool_component/toolbar/Toolbar';
 import EditorControls from '../../containers/tool_component/toolbar/EditorControls';
@@ -75,6 +76,7 @@ class Editor extends React.Component {
         <AddComponents />
         <TextInputModal />
         <TextListInputModal />
+        <CarouselsInputModal />
         <PreviewModal />
         <Toolbar />
         <Inspector />

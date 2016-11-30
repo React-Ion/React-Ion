@@ -52,6 +52,19 @@ const routes = (routes = emptyCanvas, action) => {
          if (_.isEqual(pagePath.past[pagePath.past.length - 1], pagePath.present)) {
            pagePath.past.pop();
          }
+      } else if (actionType === 'Carousels') {
+        moveToPast(pagePath, routes, actionType);
+        const update = (tree) => {
+          if (tree.id === id) {
+           console.log('TREE PROPS', tree.props.settings, key, value, tree.props.settings[key])
+           tree.props.settings[key] = value;
+          } else {
+            tree.children.forEach(child => update(child));
+          }
+        };
+        update(pagePath.present);
+        console.log('UPDATED', newTree);
+        return newTree;
       } else {
         moveToPast(pagePath, routes, actionType);
         const update = (tree) => {
@@ -98,7 +111,6 @@ const routes = (routes = emptyCanvas, action) => {
       if (action.componentType !== 'Text') {
         newTree.totalComponents += 1;
       }
-
       return newTree;
 
     case ADD_PAGE:

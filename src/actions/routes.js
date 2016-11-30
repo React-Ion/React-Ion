@@ -14,6 +14,7 @@ export const SET_NEXTID = 'SET_NEXTID';
 export const UPDATE_TREE_INFO = 'UPDATE_TREE_INFO';
 
 export function updateProps(key, value, id, actionType) {
+  console.log('UPDATEPROPS', key, value, id, actionType);
   setTimeout(() => {
     store.dispatch({ type: GET_INFO, id });
   }, 1);

@@ -19,7 +19,6 @@ class Inspector extends React.Component {
   }
 
   convertProps(prop) {
-    console.log(prop);
     const props = prop.info.props;
     const w = props.width ? (props.width[0] + props.width[1]) : '100%';
     const h = props.height ? (props.height[0] + props.height[1]) : '20px';
@@ -58,6 +57,20 @@ class Inspector extends React.Component {
         textAlign: props.textAlign || 'left',
         content: props.content || '',
       };
+    } else if (prop.info.componentType === 'Carousels') {
+      info = {
+        slideInterval: props.settings.slideInterval || 2000,
+        infinite: props.settings.infinite || true,
+        disableThumbnailScroll: props.settings.disableThumbnailScroll || true,
+        showBullets: props.settings.showBullets || true,
+        showFullscreenButton: props.settings.showFullScreenButton || true,
+        showPlayButton: props.settings.showPlayButton || true,
+        showIndex: props.settings.showIndex || true,
+        autoPlay: props.settings.autoPlay || true,
+        slideOnThumbnailHover: props.settings.slideOnThumbnailHover || true,
+        disableArrowKeys: props.settings.disableArrowKeys || false,
+        startIndex: props.settings.startIndex || 0,
+      };
     } else {
       info = {
         componentName: prop.info.name,
@@ -85,12 +98,13 @@ class Inspector extends React.Component {
       info.backgroundImage = prop.info.props.backgroundImage;
     }
 
-    this.setState({ info:info });
+    this.setState({ info });
   }
 
   onChange(key, event) {
     const tempInfo = this.state.info;
     const changeInfo = this.state.changed;
+    console.log('ON CHANGE', tempInfo, changeInfo)
     if (key === 'height' || key === 'width') {
       if (event.target.value.slice(-2) === 'px') {
         changeInfo[key] = [event.target.value.substring(0, event.target.value.length - 2), event.target.value.slice(-2)];
@@ -110,30 +124,63 @@ class Inspector extends React.Component {
   }
 
   saveChanges() {
+    if (this.props.info.componentType === 'Carousels') {
+      console.log('IN SAVE CHANGES CAROUSELS')
+      Object.keys(this.state.changed).map((key) => {
+        let tempValue = this.state.changed[key];
+        
+        if (key === 'images') {
+          tempValue = tempValue.split(',');
+        }
 
-    Object.keys(this.state.changed).map((key) => {
-      let tempValue = this.state.changed[key];
-      if ((this.props.info.componentType === 'List' ||
-           this.props.info.componentType === 'Radio' ||
-           this.props.info.componentType === 'DropDown') &&
-           key === 'content') {
-        tempValue = tempValue.split(',');
-      }
+        if (tempValue === 'true' || tempValue === 'false') {
+          tempValue = Boolean(tempValue);
+        }
 
-      if (key === 'componentName') {
-        this.props.updateInfos(
-          'name',
-          tempValue,
-          this.props.selected,
-        );
-      } else {
-        this.props.updateProps(
-          `${key}`,
-          tempValue,
-          this.props.selected,
-        );
-      }
-    });
+        if (key === 'componentName') {
+          this.props.updateInfos(
+            'name',
+            tempValue,
+            this.props.selected,
+            'Carousels',
+          );
+        } else {
+          this.props.updateProps(
+            `${key}`,
+            tempValue,
+            this.props.selected,
+            'Carousels',
+          );
+        }
+      });
+    } else {
+       console.log('IN SAVE CHANGES ELSE NOT CAROUSELS')
+      Object.keys(this.state.changed).map((key) => {
+
+        let tempValue = this.state.changed[key];
+        if ((this.props.info.componentType === 'List' ||
+             this.props.info.componentType === 'Radio' ||
+             this.props.info.componentType === 'DropDown') &&
+             key === 'content') {
+          tempValue = tempValue.split(',');
+        } 
+
+        if (key === 'componentName') {
+          this.props.updateInfos(
+            'name',
+            tempValue,
+            this.props.selected,
+          );
+        } else {
+          console.log('IN ELSE UPDATE')
+          this.props.updateProps(
+            `${key}`,
+            tempValue,
+            this.props.selected,
+          );
+        }
+      });
+    }
   }
 
   clearInput(key) {
