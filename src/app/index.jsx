@@ -109,15 +109,6 @@ class Home extends React.Component {
               aria-hidden="true"
             />
           </a>
-          <a
-            className="link-icon"
-            href="/"
-          >
-            <i
-              className="fa fa-home"
-              aria-hidden="true"
-            />
-          </a>
           {
             this.state.loggedIn &&
             <button
@@ -138,7 +129,13 @@ class Home extends React.Component {
         <div className="banner">
           <div>
             <span> REACT-ION </span>
+            <div className="description">
+              A WYSIWYG editor and code generator
+            </div>
           </div>
+        </div>
+        <div className="tagline">
+          The fastest way to start building layouts with React and Flexbox
         </div>
         <div
           className={this.state.activeForm
