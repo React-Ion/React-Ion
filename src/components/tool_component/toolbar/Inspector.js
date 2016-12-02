@@ -203,26 +203,22 @@ class Inspector extends React.Component {
         case 'backgroundColor':
           return (
             <input key={index} className="inspector-input" type="color" value={this.state.info[key]} onChange={this.onChange.bind(this, key)} />
-          )
-          break;
+          );
         case 'color':
           return (
             <input key={index} className="inspector-input" type="color" value={this.state.info[key]} onChange={this.onChange.bind(this, key)} />
-          )
-          break;
+          );
         case 'link':
           return (
             <div key={index}>
               <input className="inspector-link-input" value={this.state.info[key]} onChange={this.onChange.bind(this, key)} />
               <button className="inspector-clear-button" onClick={this.clearInput.bind(this, key)}>Clear</button>
             </div>
-          )
-          break;
+          );
         case 'content':
           return (
             <textarea key={index} className="inspector-text-input" value={this.state.info[key]} onChange={this.onChange.bind(this, key)} />
-          )
-          break;
+          );
         case 'url':
           return (
             <div key={index}>
@@ -230,8 +226,7 @@ class Inspector extends React.Component {
               <button className="inspector-clear-button" onClick={this.clearInput.bind(this, key)}>Clear</button>
               <div className="inspector-image-container" ><img className="inspection-image" src={this.state.info[key]} /></div>
             </div>
-          )
-          break;
+          );
         case 'backgroundImage':
           return (
             <div key={index}>
@@ -239,8 +234,7 @@ class Inspector extends React.Component {
               <button className="inspector-clear-button" onClick={this.clearInput.bind(this, key)}>Clear</button>
               <div className="inspector-image-container" ><img className="inspection-image" src={this.state.info[key]} /></div>
             </div>
-          )
-          break;
+          );
         default:
           return (
             <input
@@ -250,7 +244,6 @@ class Inspector extends React.Component {
               onChange={this.onChange.bind(this, key)}
             />
           );
-          break;
       }
     }
   }
@@ -258,7 +251,7 @@ class Inspector extends React.Component {
   render() {
     const context = this;
 
-
+    console.log("===", this.state.info);
 
     const propList = Object.keys(this.state.info).map((key, index) => {
       return (
