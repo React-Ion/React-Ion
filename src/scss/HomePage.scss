@@ -22,8 +22,31 @@
     overflow: hidden;
     box-shadow: inset 0px 0px 100px 0px rgba(0,0,0,.75),
     0px 0px 100px 0px coral;
+
+    .description {
+      border-top: 1px solid white;
+      padding-top: 10px;
+      letter-spacing: 1px;
+      text-align: center;
+      font-size: 21px !important;
+    }
   }
 
+  .tagline {
+    text-align: center;
+    font-size: 40px;
+    font-weight: 100;
+    letter-spacing: 1px;
+    width: 40vw;
+    margin-left: 10vw;
+    height: 40vh;
+    background-color: transparent;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
   .top-bar {
     height: 60px;
     width: 100vw;
