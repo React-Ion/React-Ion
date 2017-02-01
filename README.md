@@ -1,6 +1,6 @@
-# Project Name
+# React-Ion
 
-> Pithy project description
+> React-Ion is a WYSIWYG(what you see is what you get) tool to produce React code. The application allows web designers and developers to use a GUI to create web pages that are constructed with React. React-Ion uses the Flexbox Layout to position components.
 
 ## Team
 
@@ -15,20 +15,16 @@
 1. [Development](#development)
     1. [Installing Dependencies](#installing-dependencies)
     1. [Tasks](#tasks)
-1. [Team](#team)
 1. [Contributing](#contributing)
 
 ## Usage
 
-> Some usage instructions
+> http://www.react-ion.com/
 
 ## Requirements
 
-- Node 0.10.x
-- Redis 2.6.x
-- Postgresql 9.1.x
-- etc
-- etc
+- Node v7.0.0+
+- MySQL Community Server 5.7.17
 
 ## Development
 
@@ -37,14 +33,12 @@
 From within the root directory:
 
 ```sh
-sudo npm install -g bower
 npm install
-bower install
 ```
 
 ### Roadmap
 
-View the project roadmap [here](LINK_TO_PROJECT_ISSUES)
+View the project roadmap [here](https://github.com/React-Ion/React-Ion/issues)
 
 
 ## Contributing
